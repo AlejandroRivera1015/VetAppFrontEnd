@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+:root {
+    --blue-one: #00174d;
+    --blue-two: #05255e;
+    --blue-three:#0a346f;
+    --blue-four: #0f4280;
+    --blue-five: #145091;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    position: relative;
+
+}
+.wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+}
+
+.isActive{
+    display: flex !important;
+    visibility: visible;
+}
+
+.noActive{
+    display: none;
+    visibility: hidden;
+}
+
+
+@media(max-width:1080px){
+    .isDesktop{
+        display: none;
+    }
+    .isMobile{
+        display: flex;
+    }
+    .headerMenu{display: none;}
+    .wrapper {
+        padding: 0 20px;
+    }
+}
+
+
+@media(min-width:1080px){
+    .isDesktop{
+        display: flex;
+    }
+    .isMobile{
+        display: none;
+    }
+    .wrapper {
+        padding: 0 20px;
+    }
+}
+
+
+
