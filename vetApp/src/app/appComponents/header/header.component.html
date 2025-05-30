@@ -1,0 +1,47 @@
+<div class="container headerContainer">
+    <div class="wrapper headerWrapper">
+    
+        <img src="assets/newlogo.png" alt="Vet App Logo" class="logo">        
+        
+        
+        <div class="headerMenu">
+            <ul class="headerMenuList">
+                <a href="/home" class="headerMenuItem">
+                    <li>Home</li>
+                </a>
+                <a href="/home" class="headerMenuItem">
+                    <li>Contact</li>
+                </a>
+            </ul>
+            </div>
+        
+        <div class="headerContactSection isDesktop">
+            <a href="tel:1234567890" class="headerContactLink">
+                <img src="assets/whatsapp.png" alt="Phone Icon" class="waIcon"> 
+                <p>55 123 456 789</p>
+            </a>
+        </div>
+
+        <div class="menuMobileIconWrapper">
+            <img src="assets/toggle.svg" alt="Menu Icon" class="menuMobileIcon" (click)="handleMenuToggle()">
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="menuMobileWrapper" [ngClass]=" isMenuActive ? 'activeMenuMobile' : '' ">
+        <ul class="menuMobileList">
+            <a href="/home" class="menuMobileItem">
+                <li>Home</li>
+            </a>
+            <a href="/home" class="menuMobileItem">
+                <li>Contact</li>
+            </a>
+            <a href="tel:1234567890" class="headerContactLink">
+                <img src="assets/whatsapp.png" alt="Phone Icon" class="waIcon"> 
+                <p>55 123 456 789</p>
+            </a>
+        </ul>
+
+    </div>
