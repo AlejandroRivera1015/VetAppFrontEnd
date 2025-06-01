@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
 import {  RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '../../appComponents/header/header.component';
 import { LogInMainComponent } from '../../appComponents/Login/log-in-main/log-in-main.component';
@@ -15,7 +15,7 @@ export const routes: Routes = [{
   declarations: [],
   imports: [
     CommonModule,RouterModule.forChild(routes),
-    LogInMainComponent,HeaderComponent
-  ]
+    LogInMainComponent,HeaderComponent,NgIf
+  ],
 })
 export class LogInModule { }
