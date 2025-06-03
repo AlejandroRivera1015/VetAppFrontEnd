@@ -19,6 +19,11 @@
 }
 
 @media(min-width: 1080px) {
+    .sliderContainer,.sliderContainer img{max-width: 520px; width: 100%;}
+
+}
+
+@media(min-width: 1480px) {
     .sliderContainer,.sliderContainer img{max-width: 720px; width: 100%;}
 
 }

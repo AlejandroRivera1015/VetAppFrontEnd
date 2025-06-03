@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+.hardFont {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+
 a{
     text-decoration: none;
     color: inherit;
@@ -16,6 +23,7 @@ a{
     --blue-three:#0a346f;
     --blue-four: #0f4280;
     --blue-five: #145091;
+    --secondary-color:#EBE4E4;
 }
 
 .container {
@@ -43,6 +51,7 @@ a{
 
 
 @media(max-width:1080px){
+
     .isDesktop{
         display: none;
     }
@@ -53,10 +62,33 @@ a{
     .wrapper {
         padding: 0 20px;
     }
+    app-login-form{
+        position: absolute;
+        z-index: 5;
+        color: white;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 30%;
+    }
 }
 
 
 @media(min-width:1080px){
+    app-login-form{width: 100%; max-width: 1200px; position: relative;}
+    app-login-form::after{
+        position: absolute;
+        content: '';
+        background: url("/assets/dog.svg") repeat;
+        background-size: 60px;
+        width: 100%;
+        top: 0;
+        height: 100%;
+        opacity: 0.08;
+        z-index: 1;
+    
+    }
+
+
     .isDesktop{
         display: flex;
     }
