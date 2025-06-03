@@ -1,0 +1,68 @@
+
+.form-wrapper{align-content: center; text-align: center; gap: 20px; }
+.form-wrapper form button{
+    background: var(--blue-three);
+    color: white;
+    border-radius: 30px;
+    display: flex;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.form-wrapper input,.form-wrapper select{padding:10px 20px; border: solid 1px var(--secondary-color); border-radius: 6px;}
+
+
+.form-wrapper form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+
+.form-wrapper form input{
+    display: flex;
+    margin: 0 auto;
+}
+
+.form-wrapper form select{
+    display: flex;
+    margin: 0 auto;
+}
+
+@media(min-width: 1080px){
+    .form-wrapper h1{margin-bottom: 20px;}
+
+    .form-wrapper input,.form-wrapper select{background: transparent;}
+
+
+    .form-wrapper::after{
+        content: '';
+        background: url("/assets/dog.svg") repeat;
+        background-size: cover;
+    }
+    .form-wrapper {background: var(--secondary-color);}
+    .form-wrapper form{background: white; border-radius: 12px; position: relative; z-index: 4; box-shadow: gray 0px 10px 10px 0 ;}
+
+    .form-wrapper{height: 780px; width: 100%; }
+    .form-wrapper form select{width: 400px; height: 40px;}
+    .form-wrapper form input{ width: 400px;height: 40px; }
+    .form-wrapper form{ width: 620px; gap: 20px;}
+    .form-wrapper form button{
+        width: 180px;
+        height: 40px;
+    }
+
+    .form-wrapper form{padding: 40px;}
+
+    
+
+}
+
+@media(min-width: 1480px){
+    .form-wrapper{height: 1080px; width: 100%; }
+    .form-wrapper input,.form-wrapper select,.form-wrapper button{font-size: 20px;}
+}
