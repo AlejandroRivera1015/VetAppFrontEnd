@@ -1,0 +1,29 @@
+
+
+
+@media(max-width: 1080px) {
+    .sliderContainer{ width: 100%;}
+    app-home-slider,.sliderContainer{width: 100% !important;}
+
+    app-home-slider{
+        width: 100%;
+    }
+
+    swiper-slide{max-width: 1080px; width: 100% !important;}
+    swiper-slide img{max-width: 1080px; width: 100% !important;}
+
+
+
+    
+
+}
+
+@media(min-width: 1080px) {
+    .sliderContainer,.sliderContainer img{max-width: 520px; width: 100%;}
+
+}
+
+@media(min-width: 1480px) {
+    .sliderContainer,.sliderContainer img{max-width: 720px; width: 100%;}
+
+}
