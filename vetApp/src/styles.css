@@ -51,6 +51,7 @@ a{
 
 
 @media(max-width:1080px){
+
     .isDesktop{
         display: none;
     }
@@ -60,6 +61,14 @@ a{
     .headerMenu{display: none;}
     .wrapper {
         padding: 0 20px;
+    }
+    app-login-form{
+        position: absolute;
+        z-index: 5;
+        color: white;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 30%;
     }
 }
 
