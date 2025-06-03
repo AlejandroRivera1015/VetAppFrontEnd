@@ -33,6 +33,22 @@
     margin: 0 auto;
 }
 
+@media(max-width:1080px){
+    .form-wrapper form{gap: 20px;}
+    .form-wrapper{max-width: 360px; width: 100%; margin:  0 auto;}
+    .form-wrapper h1{margin-bottom: 20px;}
+    .form-wrapper form button{
+        width: 180px;
+        height: 40px;
+    }
+    .form-wrapper form select{width: 280px; height: 40px;}
+    .form-wrapper form input{ width: 280px;height: 40px; }
+    .form-wrapper form{ width: 360px; gap: 20px;}
+
+    
+
+}
+
 @media(min-width: 1080px){
     .form-wrapper h1{margin-bottom: 20px;}
 
