@@ -20,7 +20,6 @@ export class LoginFormComponent {
 
   handleLoginFormSubmit() :void{
     console.log("formSubmit "+this.loginForm.value.email);
-    
   }
 
 
