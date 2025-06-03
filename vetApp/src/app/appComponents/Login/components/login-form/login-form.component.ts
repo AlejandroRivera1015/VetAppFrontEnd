@@ -11,9 +11,17 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class LoginFormComponent {
 
-  logiForm = new FormGroup({
+  public welcomeMessage: string = "For those Who Matter to Us";
+
+  loginForm = new FormGroup({
     email: new FormControl('' , Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
+
+  handleLoginFormSubmit() :void{
+    console.log("formSubmit "+this.loginForm.value.email);
+    
+  }
+
 
 }
