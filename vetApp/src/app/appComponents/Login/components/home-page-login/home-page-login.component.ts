@@ -20,10 +20,7 @@ export class HomePageLoginComponent implements OnInit {
 
   ngOnInit() {
     this.windowFormat = WindowUtil.getWindowFormat();
-    console.log(`Window format: ${this.windowFormat}`);
     
-
-
   }
 
 }
