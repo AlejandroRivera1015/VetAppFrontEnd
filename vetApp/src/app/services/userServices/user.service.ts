@@ -1,14 +1,22 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { catchError, map, Observable } from 'rxjs';
+import { UserDTO } from '../../utils/DTO/UserDTO';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private isLogged : boolean = false;
+  private user: UserDTO | null = null;
+
   constructor( private httpClient: HttpClient) { }
+
+  public getUser() : UserDTO | null {
+    return this.user;
+  }
 
   public logIn(credetials : FormGroup) : Observable<number>{
   
@@ -16,12 +24,14 @@ export class UserService {
         observe: 'response',
         withCredentials: true
       }).pipe(
-        map(response => response.status),
+        map(response => {
+          this.user = new UserDTO(response.body.id,response.body.role);
+          this.isLogged = true;
+          return response.status;
+        }),
       catchError(error => {
-        console.error('Login failed', error);
+        this.isLogged = false;
         return [error.status]; 
       }));
-}
-
-
+  }
 }
