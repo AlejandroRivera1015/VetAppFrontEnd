@@ -3,6 +3,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import {  RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '../../appComponents/header/header.component';
 import { LogInMainComponent } from '../../appComponents/Login/log-in-main/log-in-main.component';
+import {  HttpClientModule } from '@angular/common/http';
 
 export const routes: Routes = [{
   path: '',
@@ -15,7 +16,7 @@ export const routes: Routes = [{
   declarations: [],
   imports: [
     CommonModule,RouterModule.forChild(routes),
-    LogInMainComponent,HeaderComponent,NgIf
+    LogInMainComponent,HeaderComponent,NgIf,HttpClientModule
   ],
 })
 export class LogInModule { }
