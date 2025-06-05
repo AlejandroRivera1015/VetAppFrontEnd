@@ -6,8 +6,8 @@
             <input type="emal" fornContronName="email" formControlName="email" placeholder="Email" />
             <input type="password" formControlName="password" placeholder="Password" />
             <select formControlName="role">
-                <option value="vet">I'm a client</option>
-                <option value="admin">I'm Vet</option>
+                <option value="client">I'm a client</option>
+                <option value="vet">I'm Vet</option>
                 <option value="admin">I'm Admin</option>
             </select>
             <button type="submit" [disabled]="!loginForm.valid">Login</button>
