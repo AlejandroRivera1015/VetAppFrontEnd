@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { catchError, map, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable } from 'rxjs';
 import { UserDTO } from '../../utils/DTO/UserDTO';
 
 @Injectable({
@@ -10,12 +10,12 @@ import { UserDTO } from '../../utils/DTO/UserDTO';
 export class UserService {
 
   private isLogged : boolean = false;
-  private user: UserDTO | null = null;
+  private user : BehaviorSubject<UserDTO | null > = new BehaviorSubject<UserDTO | null>(null); 
 
   constructor( private httpClient: HttpClient) { }
 
-  public getUser() : UserDTO | null {
-    return this.user;
+  public  getUser() : Observable<UserDTO | null> {
+    return this.user.asObservable();
   }
 
   public logIn(credetials : FormGroup) : Observable<number>{
@@ -25,7 +25,7 @@ export class UserService {
         withCredentials: true
       }).pipe(
         map(response => {
-          this.user = new UserDTO(response.body.id,response.body.role);
+          this.user.next(new UserDTO(response.body.id, response.body.role));
           this.isLogged = true;
           return response.status;
         }),
