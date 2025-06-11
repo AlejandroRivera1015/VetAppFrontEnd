@@ -16,6 +16,24 @@
                     <li>Appointments</li>
                 </a>
 
+                <a href=""  *ngIf="userRole == 'client'" >
+                    <li>Messages</li>
+                </a>
+
+
+                <a href=""  *ngIf="userRole == 'doctor'" >
+                    <li>Appointments</li>
+                </a>
+
+                <a href=""  *ngIf="userRole == 'doctor'" >
+                    <li>Messages</li>
+                </a>
+
+
+                <a href=""  *ngIf="userRole == 'receptionist'" >
+                    <li>Appointments</li>
+                </a>
+
                 <a href="/home" class="headerMenuItem">
                     <li>Contact</li>
                 </a>
