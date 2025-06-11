@@ -9,9 +9,17 @@
                 <a href="/home" class="headerMenuItem">
                     <li>Home</li>
                 </a>
+                <a href=""  *ngIf="userRole == 'client'" >
+                    <li>schedule</li>
+                </a>
+                <a href=""  *ngIf="userRole == 'client'" >
+                    <li>Appointments</li>
+                </a>
+
                 <a href="/home" class="headerMenuItem">
                     <li>Contact</li>
                 </a>
+    
             </ul>
             </div>
         
