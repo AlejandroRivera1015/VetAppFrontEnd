@@ -10,6 +10,6 @@ export const routes: Routes = [
         path: "user/schedule",
         loadChildren: () => import('./appModules/user-schedule/user-schedule.module').then(m => m.UserScheduleModule),
         canActivate:[AuthGuard],
-        data: {role  :'client'}
+        data: {role  :'client'} 
     }
 ];
