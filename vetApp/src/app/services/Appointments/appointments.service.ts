@@ -19,7 +19,6 @@ export class AppointmentsService {
     }).pipe(
       map((availableDoctors : Array<any>) => {
         return availableDoctors.map((doctor: any) => {
-          console.log(doctor);
           return new DoctorDTO(
             doctor.id,
               doctor.name,
