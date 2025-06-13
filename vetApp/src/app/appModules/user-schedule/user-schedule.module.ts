@@ -4,6 +4,7 @@ import { UserScheduleMainContComponent } from '../../appComponents/UserSchedule/
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '../../appComponents/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DoctorDisplayComponent } from '../../appComponents/DoctorsDisplay/doctor-display/doctor-display.component';
 
 
 
@@ -15,7 +16,7 @@ export const routes: Routes=[{
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule, UserScheduleMainContComponent,RouterModule.forChild(routes),HeaderComponent,HttpClientModule
+    CommonModule, UserScheduleMainContComponent,RouterModule.forChild(routes),HeaderComponent,HttpClientModule,DoctorDisplayComponent
   ]
 })
 export class UserScheduleModule { }
