@@ -3,10 +3,11 @@ import { HeaderComponent } from '../../header/header.component';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { AppointmentsService } from '../../../services/Appointments/appointments.service';
 import { DoctorDTO } from '../../../utils/DTO/DoctorDTO';
+import { DoctorDisplayComponent } from '../../DoctorsDisplay/doctor-display/doctor-display.component';
 
 @Component({
   selector: 'app-user-schedule-main-cont',
-  imports: [HeaderComponent],
+  imports: [HeaderComponent,DoctorDisplayComponent],
   standalone: true,
   templateUrl: './user-schedule-main-cont.component.html',
   styleUrl: './user-schedule-main-cont.component.css'
@@ -17,19 +18,8 @@ export class UserScheduleMainContComponent implements OnInit {
 
   }
 
-
-  requestAvailableDoctors(){
-    this.appointMentsService.getAvailableDoctors().subscribe(
-      (availableDoctors: Array<DoctorDTO>) =>{
-        console.log("Available Doctors: " + JSON.stringify(availableDoctors));
-      }
-    );
-      
-    
-  }
-
   ngOnInit(): void {
-    this.requestAvailableDoctors();
+    this.appointMentsService.availableDoctorsRequest();
 
   }
 
