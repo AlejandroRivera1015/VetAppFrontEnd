@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentsService } from '../../../services/Appointments/appointments.service';
 import { Observable } from 'rxjs';
 import { DoctorDTO } from '../../../utils/DTO/DoctorDTO';
@@ -16,6 +16,10 @@ export class DoctorDisplayComponent implements OnInit {
  
   public availableDoctors$ = new Observable<Array<DoctorDTO>>();
 
+
+  public setDoctorId(doctorId : number):void{
+    this.appointmentsServices.setSelectedDoctor(doctorId);    
+  }
 
   constructor(private appointmentsServices : AppointmentsService) { }
 
