@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentsService } from '../../../services/Appointments/appointments.service';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-available-hours-display',
@@ -12,15 +12,26 @@ import { BehaviorSubject, map } from 'rxjs';
 })
 export class AvailableHoursDisplayComponent implements OnInit {
 
-  private appointments : Array<Date> = [];
+  public appointments = new BehaviorSubject<Array<Date>>([]);
+  public drId = new BehaviorSubject<number>(0);
 
   constructor(private appointmentsService: AppointmentsService) {}
 
   ngOnInit(): void {
       this.appointmentsService.getSelectedDoctor().subscribe(
       (doctorId : number) =>{
+        this.drId.next(doctorId);
           this.appointmentsService.getDoctorAvailableHours(doctorId);        
       });
+
+      this.appointmentsService.getDrSchedule().subscribe(
+        (drAvailability : Array<Date>) =>{
+            this.appointments.next(drAvailability);
+        }
+      )
+
   }
+
+
 
 }
