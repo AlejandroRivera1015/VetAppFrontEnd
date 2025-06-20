@@ -33,7 +33,7 @@ export class NotificationService {
 
 
   public setMainMessage(message: string):void{
-    
+     
     this.mainMessage.next(message);
   }
 
