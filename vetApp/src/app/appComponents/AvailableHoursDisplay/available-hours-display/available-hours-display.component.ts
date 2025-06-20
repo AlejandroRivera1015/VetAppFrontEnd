@@ -17,6 +17,12 @@ export class AvailableHoursDisplayComponent implements OnInit {
 
   constructor(private appointmentsService: AppointmentsService) {}
 
+
+ public setAppointment(appointment: Date): void {
+
+  this.appointmentsService.setAppointmentRequest(appointment);
+ }
+
   ngOnInit(): void {
       this.appointmentsService.getSelectedDoctor().subscribe(
       (doctorId : number) =>{
