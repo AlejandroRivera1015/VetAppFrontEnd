@@ -10,7 +10,7 @@ import { NotificationService } from '../Notifications/notification.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AppointmentsService implements OnInit {
+export class AppointmentsService {
 
 
   private availableDoctors: BehaviorSubject<Array<DoctorDTO>> = new BehaviorSubject<Array<DoctorDTO>>([]);
@@ -35,7 +35,7 @@ export class AppointmentsService implements OnInit {
               doctor.speciality,
               new Date(doctor.startShiftAt),
               doctor.medicalAppointments.map((date: any) => new Date(date))
-            );
+            );  
       });      
 
     })).subscribe((doctors: Array<DoctorDTO>) =>{
@@ -86,17 +86,29 @@ export class AppointmentsService implements OnInit {
 
   setAppointmentRequest(scheduleDate : Date):void{
     
-    this.appointmentRequest.setDate(scheduleDate);
+    const offsetMinutes = scheduleDate.getTimezoneOffset();
+    const localDate = new Date(scheduleDate.getTime()-(offsetMinutes*60000));
+
+    this.appointmentRequest.setDate(localDate);
     this.httpClient.post<any>('http://localhost:8080/appointments/create', this.appointmentRequest,{
       observe: 'response',
       withCredentials: true 
     }).subscribe({
-      next: (response: HttpResponse<any>) =>{
+      next: (response: HttpResponse<any>) =>{                
         this.notificationService.toggleOnScreen();
         this.notificationService.setMainMessage("Creating Request ...")
   
         if(response.status === 200){
-          this.notificationService.setMainMessage("Succes!")  
+          this.notificationService.setMainMessage("Success!");
+
+          this.drSchedule.pipe(
+            map((appointments: Array<Date>)=>{
+              return appointments.filter((appointment: Date)=>appointment.getTime() != scheduleDate.getTime());
+
+            })
+          ).subscribe((appointments : Array<Date>) =>{
+            this.drSchedule.next(appointments);
+          });
         }
 
         else{
@@ -107,9 +119,7 @@ export class AppointmentsService implements OnInit {
           if(response.status === 500){
             this.notificationService.setMainMessage("Cant connect to the server, please try again later");
           }
-  
         }
-  
       } ,
       error : (error) => {
         this.notificationService.toggleOnScreen();
@@ -118,21 +128,18 @@ export class AppointmentsService implements OnInit {
     });
   }
 
-  constructor(private httpClient : HttpClient, private userService : UserService, private notificationService : NotificationService) { }
+  constructor(private httpClient : HttpClient, private userService : UserService, private notificationService : NotificationService) {
 
-  ngOnInit(): void {
     this.userService.getUser().subscribe((user : UserDTO | null) =>{
-
       if(user){
         this.appointmentRequest.setClientId(user.getId());
-        this.appointmentRequest.setDoctorId(this.selectedDoctor.getValue());
-
+        this.selectedDoctor.subscribe((doctorId : number)=>{
+          this.appointmentRequest.setDoctorId(doctorId);
+        })
       }
-        
-
     })
-      
-  }
+
+   }
 
 
 }
