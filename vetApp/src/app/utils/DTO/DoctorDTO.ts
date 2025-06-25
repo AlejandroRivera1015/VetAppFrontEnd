@@ -41,34 +41,38 @@ export class DoctorDTO {
 
 
         if(actualDay.getDate() == startShiftAt.getDate()){
-
-            for(let i = 1; i<20; i++){
+            for(let i = 0; i<20; i++){                
                 const minutesInterval : number = startShiftAt.getMinutes() + i*30;
                 let tempDate = new Date(startShiftAt);                
                 tempDate.setMinutes(minutesInterval);
+                console.log("el minutesInterval dl docs es "+tempDate.getHours()+" "+tempDate.getMinutes());
+
 
                 if((tempDate.getTime() > actualDay.getTime()) && (tempDate.getTime() - actualDay.getTime() >  1800000) ){
                     tempHoursArray.push(tempDate);
                 }
             }
 
-
-            if(doctorMedicalAppointments.length>0){
-                doctorMedicalAppointments.forEach((apointment: Date) =>{
-                    tempHoursArray.forEach((appointmentToValidate: Date) =>{
-                        if(!(appointmentToValidate.getTime() == apointment.getTime())){
-                            availableHoursArray.push(appointmentToValidate);
-                        }
-                    })
-                })
-
+            tempHoursArray.forEach((tempHour: Date) =>{
+                let flag : boolean = true;
+                doctorMedicalAppointments.forEach((appointment : Date) =>{
+                    if((tempHour.getHours() == appointment.getHours()) && (appointment.getMinutes() == tempHour.getMinutes())){
+                        flag = false;
+                    }
+            
+                });
+                if(flag){
+                    availableHoursArray.push(tempHour);
+                }    
             }
-            else{
-                availableHoursArray = tempHoursArray;
-            }      
-        }
+        )
+        return availableHoursArray; 
 
-        return tempHoursArray; 
+
+     
+        }
+        return availableHoursArray; 
+
     
     }
 
