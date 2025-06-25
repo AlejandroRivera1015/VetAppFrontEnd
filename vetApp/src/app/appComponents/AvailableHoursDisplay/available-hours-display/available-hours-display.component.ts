@@ -18,8 +18,7 @@ export class AvailableHoursDisplayComponent implements OnInit {
   constructor(private appointmentsService: AppointmentsService) {}
 
 
- public setAppointment(appointment: Date): void {
-
+ public setAppointment(appointment: Date): void {    
   this.appointmentsService.setAppointmentRequest(appointment);
  }
 
@@ -37,7 +36,5 @@ export class AvailableHoursDisplayComponent implements OnInit {
       )
 
   }
-
-
 
 }

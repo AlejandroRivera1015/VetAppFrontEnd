@@ -1,0 +1,27 @@
+.hourOption{border:  solid 1px var(--blue-one); border-radius: 30px; display:  flex; padding: 5px 10px; justify-content: center; text-align: center; max-width: 100px; transition:  1s ease background, 1s ease color, 0.5s ease transform;}
+
+.hourOption:hover{background: var(--blue-one) !important; border:  solid 1px white; color:  white !important; cursor:  pointer; transform: scale(1.3);}
+
+
+
+.hourOptionContainer{max-width: 780px; width: 100%; margin:  0 auto; text-align: center;}
+.hourOptionDisplay{max-width: 580px; width: 100%; margin:  0 auto; display: flex; flex-wrap: wrap;}
+
+
+
+
+@media(max-width:1080px){
+    .scheduleWrapper{display: flex; flex-direction: column;}
+    .hourOptionDisplay{gap: 10px; justify-content: center;}
+
+}
+
+@media(min-width:1080px){
+
+    .hourOptionDisplay{gap: 10px; margin-top: 20px;}
+
+}
+
+@media(min-width:1480px){
+
+}
