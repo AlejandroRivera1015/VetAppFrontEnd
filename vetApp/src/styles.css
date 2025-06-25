@@ -49,6 +49,40 @@ a{
     visibility: hidden;
 }
 
+app-notification-display{position: absolute; left: 50%; top: 0; z-index: 5; transform: translate(-50%); width: 100%; }
+
+.scheduleWrapper{
+    background: url("/assets/dog.svg") repeat ;
+    background-size: 60px;
+    inset: 0;
+    z-index: 0;
+
+}
+app-doctor-display, app-available-hours-display{
+    background: white;
+    border-radius: 30px;
+}
+
+@media(max-width:1480px){
+
+    app-doctor-display,app-available-hours-display{
+        padding: 20px;
+        border:solid 1px var(--secondary-color);
+        max-width: 400px;
+        width: 100%;
+        display: flex;
+
+    }
+
+    app-available-hours-display{
+        max-width: initial;
+    }
+
+    .scheduleWrapper{
+        gap: 30px;
+    }
+
+}
 
 @media(max-width:1080px){
 
@@ -70,10 +104,16 @@ a{
         transform: translateX(-50%);
         top: 30%;
     }
+    app-doctor-display{
+        max-width: 100%;
+    }
 }
 
 
 @media(min-width:1080px){
+
+
+
     app-login-form{width: 100%; max-width: 1200px; position: relative;}
     app-login-form::after{
         position: absolute;
@@ -89,6 +129,7 @@ a{
     }
 
 
+
     .isDesktop{
         display: flex;
     }
@@ -102,3 +143,23 @@ a{
 
 
 
+@media(min-width:1480px){
+
+    app-doctor-display,app-available-hours-display{
+        padding: 20px;
+        border:solid 1px var(--secondary-color);
+        max-width: 400px;
+        width: 100%;
+        display: flex;
+
+    }
+
+    app-available-hours-display{
+        max-width: initial;
+    }
+
+    .scheduleWrapper{
+        gap: 30px;
+    }
+
+}
