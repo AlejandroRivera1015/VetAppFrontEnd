@@ -1,0 +1,8 @@
+<div *ngIf ="isOnScreen" class="blurSection">
+    <div class="notificationContainer">
+        <img (click)="toggleNotificationDisplay()" class="closeBtn" src="/assets/close.svg">
+        <p>{{ mainMessage$ | async }}</p>
+    
+    </div>
+</div>
+

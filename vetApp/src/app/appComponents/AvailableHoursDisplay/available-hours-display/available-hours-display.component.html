@@ -1,0 +1,18 @@
+<div style="display: flex; flex-direction:  column; justify-content: center;" class="hourOptionContainer">
+
+    <h1>Create an Appointment:</h1>
+    <div *ngIf = "(appointments | async)?.length === 0 && (drId | async) !== 0 "><h2>No appointments Available 😿</h2></div>
+    <div class="hourOptionDisplay"  *ngIf = "(appointments | async)">
+        <div   *ngFor = "let appointment of appointments | async ">
+            <div (click)="setAppointment(appointment)" class="hourOption">    {{appointment.getHours() < 10 ? '0' + appointment.getHours() : appointment.getHours()}}:{{appointment.getMinutes() < 10 ? '0' + appointment.getMinutes() : appointment.getMinutes()}} hrs
+            </div>
+    
+        </div>
+    
+    </div>
+
+</div>
+
+
+
+
