@@ -1,0 +1,21 @@
+<div class="mainDoctorsContainer" *ngIf = "(availableDoctors$ | async)">
+    <div *ngFor="let doctor of availableDoctors$ | async">
+        <div class="doctorWrapper" (click)="setDoctorId(doctor.getId())">
+            <div class="drContainer">
+                <div class="drImageContainer">
+                    <img class="drImage" [src]="'assets/'+ doctor.getSpeciality() + '.svg'" >
+
+                </div>
+
+                <div class="drDataContainer">
+                    <div>{{doctor.getName()}}</div>
+                    <div>{{doctor.getRole()}}</div>
+                    <div>{{doctor.getSpeciality()}}</div>
+                </div>
+            </div>
+
+            
+           
+        </div>
+    </div>
+</div>

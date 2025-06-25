@@ -1,0 +1,44 @@
+
+.doctorWrapper{cursor: pointer;}
+
+.drImageContainer{display: flex; align-items: center; background: white; width: 50px; justify-content: center;  } 
+
+.doctorWrapper:hover{
+    background: var(--blue-two);
+    color: white;
+    transform: scale(1.07);
+}
+
+
+
+
+@media(max-width:1080px){
+    .drImage{max-width: 30px; }
+
+    .mainDoctorsContainer{display: flex; width: 100%; justify-content: space-between; max-width: 100%; overflow: scroll; gap: 20px;}
+    .doctorWrapper{width: 160px; border:  solid 1px var(--blue-two); text-align: center; border-radius: 0 10px 10px 0; }
+     
+
+
+}
+
+@media(min-width:1080px){
+    .drDataContainer{padding:10px 5px;}
+    .drImage{max-width: 40px; }
+    .drContainer{display: flex; gap: 10px; border-radius: 10px 0 0 10px;}
+
+
+    .mainDoctorsContainer{width: inherit;}
+   .doctorsCotainer,.mainDoctorsCotainer{display: flex; flex-direction:  column; width: 100%;} 
+   .doctorWrapper:not(last-child){
+        border: solid 1px var(--secondary-color);
+        border-radius: 10px;
+
+   }
+}
+
+
+  
+@media(min-width:1480px){
+    .mainDoctorsCotainer{gap:20px;} 
+ }
