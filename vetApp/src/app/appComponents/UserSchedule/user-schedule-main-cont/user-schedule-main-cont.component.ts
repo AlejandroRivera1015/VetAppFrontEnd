@@ -6,10 +6,11 @@ import { DoctorDTO } from '../../../utils/DTO/DoctorDTO';
 import { DoctorDisplayComponent } from '../../DoctorsDisplay/doctor-display/doctor-display.component';
 import { AvailableHoursDisplayComponent } from '../../AvailableHoursDisplay/available-hours-display/available-hours-display.component';
 import { BehaviorSubject, map } from 'rxjs';
+import { NotificationDisplayComponent } from '../../NotificationDisplay/notification-display/notification-display.component';
 
 @Component({
   selector: 'app-user-schedule-main-cont',
-  imports: [HeaderComponent,DoctorDisplayComponent,AvailableHoursDisplayComponent],
+  imports: [HeaderComponent,DoctorDisplayComponent,AvailableHoursDisplayComponent,NotificationDisplayComponent],
   standalone: true,
   templateUrl: './user-schedule-main-cont.component.html',
   styleUrl: './user-schedule-main-cont.component.css'
